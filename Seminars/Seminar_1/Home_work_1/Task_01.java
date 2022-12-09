@@ -1,7 +1,5 @@
 package Home_work_1;
-
 import java.util.Scanner;
-
 // Задача: Вычислить n-ое треугольного число(сумма чисел от 1 до n), 
 // n! (произведение чисел от 1 до n)
 public class Task_01 {
@@ -11,10 +9,8 @@ public class Task_01 {
             sum += i;
         return sum;
     }
-
     static int factorial(int num) {
         int fact = 1;
-
         if (num == 1 || num == 0)
             return fact;
         else {
@@ -23,7 +19,6 @@ public class Task_01 {
             }
             return fact;
         }
-
     }
 
     public static void main(String[] args) {
@@ -32,7 +27,6 @@ public class Task_01 {
         int n = scanner.nextInt();
         int result = find_sum_num(n);
         System.out.println("n-ое треугольное число = " + result);
-        n = scanner.nextInt();
         int factorial = factorial(n);
         System.out.println("!" + n + " = " + factorial);
         scanner.close();
