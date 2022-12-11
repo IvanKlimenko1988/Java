@@ -21,56 +21,64 @@ public class Task_04 {
         System.out.print("Введите операцию: ");
         int operation = sc.nextInt();
         System.out.println(operation);
+        String result;
         if(operation == 1){
             sb.append(a);
             sb.append("+");
             sb.append(b);
             sb.append("=");
-            String result;
             System.out.println("Результат: " + (a + b));
             result = Integer.toString(a + b);
             sb.append(result);
             writeLog(sb.toString(), "log.txt");
+        }
+        else if (operation == 2){
+            sb.append(a);
+            sb.append("-");
+            sb.append(b);
+            sb.append("=");
+            System.out.println("Результат: " + (a - b));
+            result = Integer.toString(a - b);
+            sb.append(result);
+            writeLog(sb.toString(), "log.txt");
+        }
+        else if(operation == 3){
+            sb.append(a);
+            sb.append("*");
+            sb.append(b);
+            sb.append("=");
+            System.out.println("Результат: " + (a * b));
+            result = Integer.toString(a * b);
+            sb.append(result);
+            writeLog(sb.toString(), "log.txt");
+        }
+        else if (operation == 4){
+            sb.append(a);
+            sb.append("/");
+            sb.append(b);
+            sb.append("=");
+            float c = (float) a / b;
+                if (b == 0) System.out.println("На ноль делить нельзя!");
+                else{
+                    System.out.println("Результат: " + c);
+                    sb.append(c);
+                    writeLog(sb.toString(), "log.txt");
+                }
+               
             }
+        else{
+            System.out.println("Такой операции нет!");
+        }
         sc.close();    
         } catch (Exception e) {
-            System.out.printf("Исключение: %s", e);  // TODO: handle exception
+            System.out.printf("Исключение: %s", e);
         }
-        
 
-        // } 
-        // switch (operation) {
-        //     case 1:
-        //         String result;
-        //         System.out.println("Результат: " + (a + b));
-        //         result = Integer.toString(a + b);
-        //         writeLog(result, "log.txt");
-        //         break;
-    
-                
-        //     case 2:
-        //         System.out.println("Результат: " + (a - b));
-        //         result = Integer.toString(a - b);
-        //         System.out.println(result);
-                
-        //         break;
-        //     case 3:
-        //         System.out.println("Результат: " + (a * b));
-        //         break;
-        //     case 4:
-        //         float c = (float) a / b;
-        //         if (b == 0)
-        //             System.out.println("На ноль делить нельзя!");
-        //         else
-        //             System.out.println("Результат: " + c);
-        //         break;
-            
-          
 
     }
     public static void writeLog(String s, String file) throws Exception{
         File log = new File(file);
-        FileWriter fw = new FileWriter(log);
+        FileWriter fw = new FileWriter(log, true);
         fw.write(s);
         fw.write("\n");;
         fw.flush();
