@@ -1,0 +1,11 @@
+дек. 12, 2022 10:32:16 PM Seminars.Seminar_2.Home_work_2.Task_04 main
+INFO: program run
+дек. 12, 2022 10:32:35 PM Seminars.Seminar_2.Home_work_2.Task_04 main
+INFO: Input a = 2
+дек. 12, 2022 10:32:36 PM Seminars.Seminar_2.Home_work_2.Task_04 main
+INFO: Input b = 3
+дек. 12, 2022 10:32:37 PM Seminars.Seminar_2.Home_work_2.Task_04 main
+INFO: Input operation = 2
+дек. 12, 2022 10:32:37 PM Seminars.Seminar_2.Home_work_2.Task_04 main
+INFO: result = -1
+2-3=-1
