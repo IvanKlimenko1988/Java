@@ -2,14 +2,28 @@ package Seminars.Seminar_2.Home_work_2;
 import java.util.Scanner;
 import java.io.FileWriter;
 import java.io.File;
+import java.util.logging.ConsoleHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 // import java.io.FileReader;
+import java.util.logging.SimpleFormatter;
 
 
 // Задача 4: 
 // К калькулятору из предыдущего дз добавить логирование.
 public class Task_04 {
+    // public static final Logger logger = Logger.getGlobal();
+    
+
     public static void main(String[] args) {
         try {
+        Logger logger = Logger.getLogger(Task_04.class.getName());
+        logger.setLevel(Level.INFO);
+        ConsoleHandler ch = new ConsoleHandler();
+        logger.addHandler(ch);
+        SimpleFormatter sf = new SimpleFormatter();
+        ch.setFormatter(sf);
+        logger.info("Program start");
         StringBuilder sb = new StringBuilder();
         Scanner sc = new Scanner(System.in);
         System.out.println("Калькулятор");
