@@ -1,7 +1,10 @@
-package Seminars.Seminar_5.Class_work.Home_work_5;
+package Class_work.Home_work_5;
 
 public class Task_02 {
+//    Пусть дан список сотрудников:Иван Иванов и т.д.
+//    Написать программу, которая найдет и выведет повторяющиеся имена с количеством повторений.
+//    Отсортировать по убыванию популярности.
     public static void main(String[] args) {
-        System.out.println("hi");
+
     }
 }
