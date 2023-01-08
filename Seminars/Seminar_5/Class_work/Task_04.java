@@ -1,4 +1,4 @@
-package Seminars.Seminar_5.Class_work;
+package Class_work;
 
 import java.util.LinkedHashMap;
 
