@@ -34,20 +34,20 @@ public class Main {
 //        2. Создайте 2 или более котов с одинаковыми параметрами в полях. Поместите их во множество. Убедитесь, что все они сохранились во множество.
 //        3. Создайте метод public boolean equals(Object o)
 //        Пропишите в нём логику сравнения котов по параметрам, хранимым в полях. То есть, метод должен возвращать
-        cats.add(cat1);
-        cats.add(cat2);
-        cats.add(cat3);
-        cats.add(cat4);
-
-        for (Cat c : cats) {true, только если значения во всех полях сравниваемых объектов равны.
+//        cats.add(cat1);
+//        cats.add(cat2);
+//        cats.add(cat3);
+//        cats.add(cat4);
+//
+//        for (Cat c : cats) {true, только если значения во всех полях сравниваемых объектов равны.
 //        4. Создайте метод public int hashCode()
 //        который будет возвращать hash, вычисленный на основе полей класса Cat. (Можно использовать Objects.hash(...))
 //        5. Выведите снова содержимое множества из пункта 2, убедитесь, что дубликаты удалились.
-            HashSet<Cat> cats = new HashSet<Cat>();
-            System.out.println(c);
-        }
-        System.out.println(cat4.equals(cat3));
-        System.out.println(cat4.hashCode() == cat3.hashCode());
+//            HashSet<Cat> cats = new HashSet<Cat>();
+//            System.out.println(c);
+//        }
+//        System.out.println(cat4.equals(cat3));
+//        System.out.println(cat4.hashCode() == cat3.hashCode());
 
 
 
