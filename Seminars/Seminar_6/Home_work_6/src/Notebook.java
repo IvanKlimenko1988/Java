@@ -16,13 +16,13 @@ public class Notebook {
 //            "Linux, серый [71006300174]
 
     public String brand;
-    public String diagonal;
+    public int diagonal;
     public int RAM;
     public int SSD;
     public String OS;
     public String color;
 
-    public Notebook(String brand, String diagonal, int RAM, int SSD, String OS, String color) {
+    public Notebook(String brand, int diagonal, int RAM, int SSD, String OS, String color) {
         this.brand = brand;
         this.diagonal = diagonal;
         this.RAM = RAM;
@@ -34,7 +34,7 @@ public class Notebook {
     public String getBrand(){
         return brand;
     }
-    public String getDiagonal(){
+    public int getDiagonal(){
         return this.diagonal;
     }
     public int getRAM(){
@@ -52,6 +52,6 @@ public class Notebook {
 
     @Override
     public String toString() {
-        return String.format("Фирма: %s; Диагональ: %s\"; ОЗУ: %dГб; Объём ЖД: %dГб; ОC: %s; Цвет: %s", this.brand, this.diagonal, this.RAM, this.SSD, this.OS, this.color);
+        return String.format("Фирма: %s; Диагональ: %d\"; ОЗУ: %dГб; Объём ЖД: %dГб; ОC: %s; Цвет: %s", this.brand, this.diagonal, this.RAM, this.SSD, this.OS, this.color);
     }
 }
