@@ -19,13 +19,15 @@ public class Main {
             System.out.println(item);
         }
     }
+
     public static int inputNum;
-    public static void insertFilter(HashSet<Notebook> list, Map<Integer, String> filters, Scanner sc){
+
+    public static void insertFilter(HashSet<Notebook> list, Map<Integer, String> filters, Scanner sc) {
         Iterator<Notebook> element = list.iterator();
 
         System.out.print("Ввод: ");
         inputNum = sc.nextInt();
-        System.out.printf("Выбран критерий: %s\n",filters.get(inputNum));
+        System.out.printf("Выбран критерий: %s\n", filters.get(inputNum));
         boolean choice = true;
         while (choice) {
             if (inputNum == 1) {
@@ -68,12 +70,38 @@ public class Main {
             }
         }
     }
-    public static void showFilter(Map<Integer, String> filter){
+
+    public static void showFilter(Map<Integer, String> filter) {
         System.out.println("Введите цифру, соответствующую необходимому критерию: ");
         for (int i = 1; i <= filter.size(); i++) {
             System.out.println(i + " - " + filter.get(i));
         }
     }
+
+    public static void printValues(Map<Integer, String> map) {
+        for (Map.Entry<Integer, String> pair : map.entrySet()) {
+            String value = pair.getValue();
+            int val = pair.getKey();
+            System.out.println(val + " - " + value);
+        }
+    }
+
+    public static void delFilrer(Map<Integer, String> filter) {
+        System.out.println("Введите цифру, соответствующую необходимому критерию: ");
+        filter.remove(inputNum);
+        printValues(filter);
+
+    }
+
+    private static boolean isDigit(String s) throws NumberFormatException {
+        try {
+            Integer.parseInt(s);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -95,7 +123,7 @@ public class Main {
         filter.put(2, "Диагональ");
         filter.put(3, "ОЗУ");
         filter.put(4, "Объем ЖД");
-        filter.put(5, "Операционная сист ема");
+        filter.put(5, "Операционная система");
         filter.put(6, "Цвет");
 
 //        showNotebooks(notebooks);
@@ -104,19 +132,38 @@ public class Main {
 
         insertFilter(notebooks, filter, sc);
 
-        System.out.println("Введите минимальное значение отфильтрованного товара: ");
-        String minVal = sc.next();
-        int minInt = Integer.parseInt(minVal);//ошибка при вводе строки
 
-        Map<String, Integer> minFilter = new HashMap<>();
-        minFilter.put(filter.get(inputNum), minInt);
+        boolean stop = true;
+        Map<String, Integer> valueFilter = new HashMap<>();
+        Map<String, String> stringFilter = new HashMap<>();
+        int value;
+        int countChoice = 0;
+        while (stop) {
+            System.out.println("Введите минимальное значение отфильтрованного товара: ");
+            String input = sc.next();
+            delFilrer(filter);
+            insertFilter(notebooks, filter, sc);
+            if (isDigit(input)) {
+                value = Integer.parseInt(input);//ошибка при вводе строки
+                valueFilter.put(filter.get(inputNum), value);
+                countChoice++;//ОЗУ=16
+            } else {
+                stringFilter.put(filter.get(inputNum), input);
+                countChoice++;
+            }
+            if (countChoice == 6) {
+                stop = false;
+            }
 
-        if (minFilter.containsKey(minVal)) {
-            System.out.println(minFilter.containsKey(minVal));
         }
 
+        for (int i = 0; i < valueFilter.size(); i++) {
+            System.out.println(valueFilter.entrySet());
+        }
 
-
+        for (int i = 0; i < stringFilter.size(); i++) {
+            System.out.println(stringFilter.entrySet());
+        }
 
 
 //   / НЕ УДАЛЯТЬ  //////////////////
@@ -132,6 +179,6 @@ public class Main {
 //
 //        for (int i = 0; i < minFilter.size(); i++) {
 //            System.out.println(minFilter.entrySet());
-        }
 
     }
+}
