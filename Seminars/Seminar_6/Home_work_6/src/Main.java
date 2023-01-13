@@ -1,4 +1,3 @@
-
 import java.util.*;
 
 
@@ -25,7 +24,7 @@ public class Main {
     public static void insertFilter(HashSet<Notebook> list, Map<Integer, String> filters, Scanner sc) {
         Iterator<Notebook> element = list.iterator();
 
-        System.out.print("Ввод: ");
+//        System.out.print("Ввод: ");
         inputNum = sc.nextInt();
         System.out.printf("Выбран критерий: %s\n", filters.get(inputNum));
         boolean choice = true;
@@ -66,7 +65,7 @@ public class Main {
                 inputNum = sc.nextInt();
             }
             if (!choice) {
-                System.out.println("Следующий щаг: ");
+                break;
             }
         }
     }
@@ -86,11 +85,9 @@ public class Main {
         }
     }
 
-    public static void delFilrer(Map<Integer, String> filter) {
+    public static void delFilter(Map<Integer, String> filter) {
         System.out.println("Введите цифру, соответствующую необходимому критерию: ");
         filter.remove(inputNum);
-        printValues(filter);
-
     }
 
     private static boolean isDigit(String s) throws NumberFormatException {
@@ -108,7 +105,7 @@ public class Main {
         Notebook notebook1 = new Notebook("MSI", 15, 16, 256, "Windows", "White");
         Notebook notebook2 = new Notebook("Asus", 13, 8, 512, "Windows", "black");
         Notebook notebook3 = new Notebook("Apple", 13, 8, 128, "MacOS", "silver");
-        Notebook notebook4 = new Notebook("Asus", 17, 16, 512, "Free DOS", "black");
+        Notebook notebook4 = new Notebook("Asus", 17, 16, 512, "FreeDOS", "black");
         Notebook notebook5 = new Notebook("MSI", 17, 32, 1024, "Windows", "black");
 
         HashSet<Notebook> notebooks = new HashSet<>();
@@ -133,27 +130,29 @@ public class Main {
         insertFilter(notebooks, filter, sc);
 
 
-        boolean stop = true;
         Map<String, Integer> valueFilter = new HashMap<>();
         Map<String, String> stringFilter = new HashMap<>();
         int value;
         int countChoice = 0;
-        while (stop) {
-            System.out.println("Введите минимальное значение отфильтрованного товара: ");
-            String input = sc.next();
-            delFilrer(filter);
-            insertFilter(notebooks, filter, sc);
-            if (isDigit(input)) {
-                value = Integer.parseInt(input);//ошибка при вводе строки
-                valueFilter.put(filter.get(inputNum), value);
-                countChoice++;//ОЗУ=16
-            } else {
-                stringFilter.put(filter.get(inputNum), input);
-                countChoice++;
-            }
+        while (true) {
             if (countChoice == 6) {
-                stop = false;
+                break;
+            } else {
+                System.out.println("Введите минимальное значение отфильтрованного товара: ");
+                String input = sc.next();
+                delFilter(filter);
+                printValues(filter);
+                insertFilter(notebooks, filter, sc);
+                if (isDigit(input)) {
+                    value = Integer.parseInt(input);//ошибка при вводе строки
+                    valueFilter.put(filter.get(inputNum), value);
+                    countChoice++;//ОЗУ=16
+                } else {
+                    stringFilter.put(filter.get(inputNum), input);
+                    countChoice++;
+                }
             }
+
 
         }
 
