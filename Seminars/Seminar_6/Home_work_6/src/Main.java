@@ -23,9 +23,10 @@ public class Main {
 
     public static void insertFilter(HashSet<Notebook> list, Map<Integer, String> filters, Scanner sc) {
         Iterator<Notebook> element = list.iterator();
-
-//        System.out.print("Ввод: ");
+        System.out.print("Ввод: ");
         inputNum = sc.nextInt();
+        if (filters.get(inputNum) == null)
+            filters.put(inputNum, "Критерий в базе не найден!");
         System.out.printf("Выбран критерий: %s\n", filters.get(inputNum));
         boolean choice = true;
         while (choice) {
@@ -33,6 +34,7 @@ public class Main {
                 while (element.hasNext()) {
                     System.out.println(element.next().getBrand());
                     choice = false;
+
                 }
             } else if (inputNum == 2) {
                 while (element.hasNext()) {
@@ -60,20 +62,12 @@ public class Main {
                     choice = false;
                 }
             } else {
-                System.out.println("Нет такого критерия!");
                 System.out.println("Введите цифру, соответствующую необходимому критерию: ");
                 inputNum = sc.nextInt();
             }
             if (!choice) {
                 break;
             }
-        }
-    }
-
-    public static void showFilter(Map<Integer, String> filter) {
-        System.out.println("Введите цифру, соответствующую необходимому критерию: ");
-        for (int i = 1; i <= filter.size(); i++) {
-            System.out.println(i + " - " + filter.get(i));
         }
     }
 
@@ -123,61 +117,63 @@ public class Main {
         filter.put(5, "Операционная система");
         filter.put(6, "Цвет");
 
-//        showNotebooks(notebooks);
-
-        showFilter(filter);
-
-        insertFilter(notebooks, filter, sc);
-
-
         Map<String, Integer> valueFilter = new HashMap<>();
         Map<String, String> stringFilter = new HashMap<>();
         int value;
         int countChoice = 0;
+        System.out.println("Введите параметр отфильтрованного товара: ");
+
         while (true) {
+            printValues(filter);
+            insertFilter(notebooks, filter, sc);
+            String input = sc.next();
+            if (isDigit(input)) {
+                value = Integer.parseInt(input);//ошибка при вводе строки
+                valueFilter.put(filter.get(inputNum), value);
+                countChoice++;
+                delFilter(filter);
+
+            } else {
+                stringFilter.put(filter.get(inputNum), input);
+                countChoice++;
+                delFilter(filter);
+            }
             if (countChoice == 6) {
                 break;
-            } else {
-                System.out.println("Введите минимальное значение отфильтрованного товара: ");
-                String input = sc.next();
-                delFilter(filter);
-                printValues(filter);
-                insertFilter(notebooks, filter, sc);
-                if (isDigit(input)) {
-                    value = Integer.parseInt(input);//ошибка при вводе строки
-                    valueFilter.put(filter.get(inputNum), value);
-                    countChoice++;//ОЗУ=16
-                } else {
-                    stringFilter.put(filter.get(inputNum), input);
-                    countChoice++;
-                }
             }
-
-
         }
 
-        for (int i = 0; i < valueFilter.size(); i++) {
-            System.out.println(valueFilter.entrySet());
+        List<Notebook> ram = notebooks.stream()
+                .filter(item -> item.getRAM() == valueFilter.get("ОЗУ")).toList();
+        List<Notebook> diag = notebooks.stream()
+                .filter(item -> item.getDiagonal() == valueFilter.get("Диагональ")).toList();
+        List<Notebook> ssd = notebooks.stream()
+                .filter(item -> item.getSSD() == valueFilter.get("Объем ЖД")).toList();
+        List<Notebook> brand = notebooks.stream()
+                .filter(item -> item.getBrand() == stringFilter.get("Фирма")).toList();
+        List<Notebook> os = notebooks.stream()
+                .filter(item -> item.getOS() == stringFilter.get("Операционная система")).toList();
+        List<Notebook> color = notebooks.stream()
+                .filter(item -> item.getColor() == stringFilter.get("Цвет")).toList();
+
+
+        for (int i = 0; i < ram.size(); i++) {
+            System.out.println(ram.get(i));
         }
-
-        for (int i = 0; i < stringFilter.size(); i++) {
-            System.out.println(stringFilter.entrySet());
+        for (int i = 0; i < diag.size(); i++) {
+            System.out.println(diag.get(i));
         }
-
-
-//   / НЕ УДАЛЯТЬ  //////////////////
-
-
-//        List<Notebook> result = notebooks.stream()
-//                .filter(item -> item.getRAM() == minInt).toList();
-//
-//        for (int i = 0; i < result.size(); i++) {
-//            System.out.println(result.get(i));
-//        }
-/////////////////////
-//
-//        for (int i = 0; i < minFilter.size(); i++) {
-//            System.out.println(minFilter.entrySet());
-
+        for (int i = 0; i < ssd.size(); i++) {
+            System.out.println(ssd.get(i));
+        }
+        for (int i = 0; i < brand.size(); i++) {
+            System.out.println(brand.get(i));
+        }
+        for (int i = 0; i < os.size(); i++) {
+            System.out.println(os.get(i));
+        }
+        for (int i = 0; i < color.size(); i++) {
+            System.out.println(color.get(i));
+        }
     }
 }
