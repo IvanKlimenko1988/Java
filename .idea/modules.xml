@@ -2,10 +2,18 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/../OOP_Lesson_2/OOP_Lesson_2.iml" filepath="$PROJECT_DIR$/../OOP_Lesson_2/OOP_Lesson_2.iml" />
       <module fileurl="file://$PROJECT_DIR$/../OOP_Seminars/OOP_Seminar_1.iml" filepath="$PROJECT_DIR$/../OOP_Seminars/OOP_Seminar_1.iml" />
       <module fileurl="file://$PROJECT_DIR$/../OOP_Seminar_1_Home_wokr/OOP_Seminar_1_Home_wokr.iml" filepath="$PROJECT_DIR$/../OOP_Seminar_1_Home_wokr/OOP_Seminar_1_Home_wokr.iml" />
       <module fileurl="file://$PROJECT_DIR$/../OOP_Seminar_2/OOP_Seminar_2.iml" filepath="$PROJECT_DIR$/../OOP_Seminar_2/OOP_Seminar_2.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/Seminars/Seminar_6/Home_work_6/Home_work_6.iml" filepath="$PROJECT_DIR$/Seminars/Seminar_6/Home_work_6/Home_work_6.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IdeaProjects.iml" filepath="$PROJECT_DIR$/IdeaProjects.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lessons/Lessons.iml" filepath="$PROJECT_DIR$/Lessons/Lessons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Seminars/Seminar_6/Seminar_6.iml" filepath="$PROJECT_DIR$/Seminars/Seminar_6/Seminar_6.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Seminars/Seminars.iml" filepath="$PROJECT_DIR$/Seminars/Seminars.iml" />
+>>>>>>> origin/main
     </modules>
   </component>
 </project>
