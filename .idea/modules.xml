@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../OOP_Lesson_2/OOP_Lesson_2.iml" filepath="$PROJECT_DIR$/../OOP_Lesson_2/OOP_Lesson_2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../OOP_Seminars/OOP_Seminar_1.iml" filepath="$PROJECT_DIR$/../OOP_Seminars/OOP_Seminar_1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../OOP_Seminar_1_Home_wokr/OOP_Seminar_1_Home_wokr.iml" filepath="$PROJECT_DIR$/../OOP_Seminar_1_Home_wokr/OOP_Seminar_1_Home_wokr.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../OOP_Seminar_2/OOP_Seminar_2.iml" filepath="$PROJECT_DIR$/../OOP_Seminar_2/OOP_Seminar_2.iml" />
+    </modules>
+  </component>
+</project>
